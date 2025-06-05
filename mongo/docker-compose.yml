@@ -12,6 +12,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
       - mongo_data:/data/db
+    networks:
+      - npm-net
 
   mongo-express:
     image: mongo-express:latest
@@ -29,11 +31,13 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: password
+    networks:
+      - npm-net
 
 volumes:
   mongo_data:
 
 networks:
-  default:
+  npm-net:
     external: true
-    name: nproxy
+    name: npm-net
