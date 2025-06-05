@@ -1,0 +1,3 @@
+# .gitignore for npm proxy manager
+letsencrypt/
+data/
